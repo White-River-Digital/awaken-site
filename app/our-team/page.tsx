@@ -22,6 +22,48 @@ export const metadata: Metadata = {
   description: "AWAKEN executive board and Afghanistan program leadership.",
 };
 
+function TeamMemberCard({
+  name,
+  role,
+  subtitle,
+  photoSrc,
+  imageSizes,
+}: {
+  name: string;
+  role: string;
+  subtitle?: string;
+  photoSrc: string | null;
+  imageSizes: string;
+}) {
+  return (
+    <Card className="border-border/80">
+      <CardHeader className="items-center text-center">
+        {photoSrc ? (
+          <div className="relative mb-1 size-32 shrink-0 overflow-hidden rounded-full bg-muted ring-2 ring-border/60 sm:size-36">
+            <Image
+              src={photoSrc}
+              alt={name}
+              fill
+              className="object-cover object-top"
+              sizes={imageSizes}
+            />
+          </div>
+        ) : null}
+        <CardTitle className="text-lg">{name}</CardTitle>
+        <CardDescription>
+          {subtitle ? (
+            <>
+              {role} — {subtitle}
+            </>
+          ) : (
+            role
+          )}
+        </CardDescription>
+      </CardHeader>
+    </Card>
+  );
+}
+
 export default function OurTeamPage() {
   return (
     <>
@@ -40,32 +82,19 @@ export default function OurTeamPage() {
             Executive board
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {boardMembers.map((m) => {
-              const src = getTeamMemberPhotoPath(
-                manifest,
-                m.name,
-                BOARD_MEMBER_PHOTO_PATTERNS,
-              );
-              return (
-                <Card key={m.name} className="border-border/80 overflow-hidden">
-                  {src ? (
-                    <div className="relative aspect-[4/3] w-full bg-muted">
-                      <Image
-                        src={src}
-                        alt={`${m.name}`}
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width:1024px) 50vw, 33vw"
-                      />
-                    </div>
-                  ) : null}
-                  <CardHeader>
-                    <CardTitle className="text-lg">{m.name}</CardTitle>
-                    <CardDescription>{m.role}</CardDescription>
-                  </CardHeader>
-                </Card>
-              );
-            })}
+            {boardMembers.map((m) => (
+              <TeamMemberCard
+                key={m.name}
+                name={m.name}
+                role={m.role}
+                photoSrc={getTeamMemberPhotoPath(
+                  manifest,
+                  m.name,
+                  BOARD_MEMBER_PHOTO_PATTERNS,
+                )}
+                imageSizes="144px"
+              />
+            ))}
           </div>
         </section>
 
@@ -81,34 +110,20 @@ export default function OurTeamPage() {
             in-country.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {afghanistanTeam.map((m) => {
-              const src = getTeamMemberPhotoPath(
-                manifest,
-                m.name,
-                AFGHANISTAN_TEAM_PHOTO_PATTERNS,
-              );
-              return (
-              <Card key={m.name} className="overflow-hidden">
-                {src ? (
-                  <div className="relative aspect-[4/3] w-full bg-muted">
-                    <Image
-                      src={src}
-                      alt={m.name}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width:640px) 100vw, 50vw"
-                    />
-                  </div>
-                ) : null}
-                <CardHeader>
-                  <CardTitle className="text-lg">{m.name}</CardTitle>
-                  <CardDescription>
-                    {m.role} — {m.org}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              );
-            })}
+            {afghanistanTeam.map((m) => (
+              <TeamMemberCard
+                key={m.name}
+                name={m.name}
+                role={m.role}
+                subtitle={m.org}
+                photoSrc={getTeamMemberPhotoPath(
+                  manifest,
+                  m.name,
+                  AFGHANISTAN_TEAM_PHOTO_PATTERNS,
+                )}
+                imageSizes="144px"
+              />
+            ))}
           </div>
         </section>
       </PageShell>
