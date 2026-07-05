@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { ImageHero } from "@/components/image-hero";
-import { ProseImageSection } from "@/components/prose-image-section";
+import {
+  HighlightCallout,
+  ProseImageSection,
+} from "@/components/prose-image-section";
 import { PageShell, ProseSection } from "@/components/page-shell";
 import { siteImages } from "@/lib/site-images";
 
@@ -37,10 +40,13 @@ export default function CleanWaterPage() {
             alt: "Clean water infrastructure at AWAKEN facilities",
           }}
         >
-          <p>
+          <HighlightCallout>
             Roughly <strong>35% of Afghans</strong> lack clean drinking water and
-            adequate restrooms. Rural Afghanistan faces acute scarcity; our goal
-            is to increase access at our programs.
+            adequate restrooms
+          </HighlightCallout>
+          <p>
+            Rural Afghanistan faces acute scarcity; our goal is to increase access
+            at our programs.
           </p>
           <p>
             In March 2017, AWAKEN partnered with the Rotary Foundation on projects

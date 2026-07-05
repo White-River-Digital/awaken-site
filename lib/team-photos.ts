@@ -23,12 +23,16 @@ export const BOARD_MEMBER_PHOTO_PATTERNS: Record<string, string[]> = {
   ],
   "Kristin Williams": ["image0.png", "ef58422edb164f3eb64bfbb3732bacb5"],
   "Cecil Bohanon": ["img_0325", "b5d4ca64824e4665a5a9b37dcdc51247"],
-  "Anwar Abdalah": ["anwar.jpg", "1267b97347ef45aab9bd0e4dd11b1cd4"],
   "Scott Shockley": [
     "shockley, scott 2019",
     "9408ebcf31ca46079220886112ac81eb",
   ],
   "Amy Beckett": ["img_3308_heic", "f70b309afa6d464eb9dba41383deb962"],
+};
+
+/** Locally hosted headshots not yet on the Wix CDN crawl. */
+export const LOCAL_TEAM_PHOTO_PATHS: Record<string, string> = {
+  "Pam Richards": "/images/team/pam-richards.jpg",
 };
 
 export const AFGHANISTAN_TEAM_PHOTO_PATTERNS: Record<string, string[]> = {
@@ -58,6 +62,9 @@ export function getTeamMemberPhotoPath(
   memberName: string,
   patternsByName: Record<string, string[]>,
 ): string {
+  const local = LOCAL_TEAM_PHOTO_PATHS[memberName];
+  if (local) return local;
+
   const patterns = patternsByName[memberName];
   if (!patterns?.length) return "";
 

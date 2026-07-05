@@ -37,7 +37,7 @@ function TeamMemberCard({
 }) {
   return (
     <Card className="border-border/80">
-      <CardHeader className="items-center text-center">
+      <CardHeader className="justify-items-center text-center">
         {photoSrc ? (
           <div className="relative mb-1 size-32 shrink-0 overflow-hidden rounded-full bg-muted ring-2 ring-border/60 sm:size-36">
             <Image
@@ -71,7 +71,6 @@ export default function OurTeamPage() {
         src={siteImages.ourTeam.hero}
         alt="AWAKEN leadership and board"
         title="Our team"
-        subtitle="Volunteer leadership in the U.S. and dedicated staff in Afghanistan."
       />
       <PageShell>
         <section aria-labelledby="board-heading">
@@ -81,7 +80,7 @@ export default function OurTeamPage() {
           >
             Executive board
           </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {boardMembers.map((m) => (
               <TeamMemberCard
                 key={m.name}

@@ -60,6 +60,12 @@ export default function VocationalTrainingPage() {
             District. For many women, these skills enable self-sufficiency and
             community support.
           </p>
+          <StatFacts
+            items={[
+              "60+ women complete the six-month program each year",
+              "32 women in the first graduating class",
+            ]}
+          />
         </ProseImageSection>
 
         <ProseImageSection
@@ -69,14 +75,6 @@ export default function VocationalTrainingPage() {
             alt: "Women in a vocational tailoring class at a Saheli Center",
           }}
           imagePosition="left"
-          imageColumnHeader={
-            <StatFacts
-              items={[
-                "60+ women from three different villages currently enrolled",
-                "500+ women have graduated from the vocational training program",
-              ]}
-            />
-          }
         >
           <p>
             In 2017, AWAKEN launched women&apos;s centers that include{" "}
@@ -86,6 +84,12 @@ export default function VocationalTrainingPage() {
             completed in February 2019, AWAKEN continued these services where
             demand remains strong.
           </p>
+          <StatFacts
+            items={[
+              "60+ women from three different villages currently enrolled",
+              "500+ women have graduated from the vocational training program",
+            ]}
+          />
         </ProseImageSection>
       </PageShell>
     </>

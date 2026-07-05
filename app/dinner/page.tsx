@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { PageImageHero } from "@/components/page-image-hero";
 import { PageShell, ProseSection } from "@/components/page-shell";
 import { buttonVariants } from "@/components/ui/button";
+import { dinnerPageEnabled } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { siteImages } from "@/lib/site-images";
 
@@ -13,6 +15,8 @@ export const metadata: Metadata = {
 };
 
 export default function DinnerPage() {
+  if (!dinnerPageEnabled) notFound();
+
   return (
     <>
       <PageImageHero

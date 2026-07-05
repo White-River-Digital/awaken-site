@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
 import { siteConfig } from "@/lib/constants";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -23,7 +22,6 @@ export function GivebutterPrimaryCta({
       )}
     >
       {label}
-      <ExternalLink className="ml-2 size-4" aria-hidden />
     </Link>
   );
 }

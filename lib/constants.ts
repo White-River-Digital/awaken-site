@@ -2,6 +2,8 @@ export const siteConfig = {
   name: "AWAKEN",
   fullName:
     "AWAKEN — Afghan Women’s And Kids’ Education & Necessities",
+  organizationName:
+    "Afghan Women's And Kids' Education & Necessities",
   description:
     "Help Afghan women & children through education, healthcare, vocational training, and clean water in Afghanistan.",
   url: "https://www.awakeninc.org",
@@ -35,7 +37,56 @@ export const siteConfig = {
     /** Embed widget key from legacy Wix implementation */
     widgetId: "krueJF5Is9LUy47T",
   },
+  donation: {
+    paypalGivingFund:
+      "https://www.paypal.com/us/fundraiser/charity/1655951",
+    venmo: "https://venmo.com/awaken2020",
+    /** Update when LaunchGood campaign URL is confirmed */
+    launchGood: "https://www.launchgood.com/v4/campaign/support_awaken",
+  },
+  storefront: {
+    /** Legacy Wix store — product links below use this origin */
+    shopAllUrl: "https://www.awakeninc.org/category/all-products",
+  },
 };
+
+export type DonationOption = {
+  title: string;
+  description: string;
+  href: string;
+  buttonLabel: string;
+};
+
+export const donationOptions: DonationOption[] = [
+  {
+    title: "Givebutter",
+    description:
+      "Our primary online giving platform with $0 platform fees — the same secure checkout linked from our annual letter and events. Supports one-time and recurring gifts with tax receipts.",
+    href: siteConfig.givebutter.campaignUrl,
+    buttonLabel: "Give on Givebutter",
+  },
+  {
+    title: "PayPal Giving Fund",
+    description:
+      "Donate through PayPal with no fees to AWAKEN — PayPal delivers 100% of your gift to our nonprofit account and provides a donation receipt for your records.",
+    href: siteConfig.donation.paypalGivingFund,
+    buttonLabel: "Give via PayPal",
+  },
+  {
+    title: "Venmo",
+    description:
+      "Send a quick gift from your phone — ideal for spontaneous support or sharing AWAKEN with friends. Use @awaken2020 in the Venmo app.",
+    href: siteConfig.donation.venmo,
+    buttonLabel: "Give on Venmo",
+  },
+  {
+    title: "LaunchGood",
+    description:
+      "Give through a faith-inspired crowdfunding community that supports humanitarian work in Afghanistan — especially meaningful during Ramadan and for zakat-eligible giving.",
+    href: siteConfig.donation.launchGood,
+    buttonLabel: "Give on LaunchGood",
+  },
+];
 
 export type NavItem =
   | { label: string; href: string }
@@ -44,23 +95,16 @@ export type NavItem =
       items: { label: string; href: string }[];
     };
 
-export const mainNav: NavItem[] = [
+/** Set to true when the annual fundraising dinner page should be live. */
+export const dinnerPageEnabled = false;
+
+const baseMainNav: NavItem[] = [
   {
     label: "About Us",
     items: [
-      { label: "Overview", href: "/" },
+      { label: "Overview", href: "/mission" },
       { label: "Our Team", href: "/our-team" },
       { label: "Founder's Story", href: "/founders-story" },
-    ],
-  },
-  {
-    label: "Our Work",
-    items: [
-      { label: "Healthcare", href: "/healthcare" },
-      { label: "Education", href: "/education" },
-      { label: "Vocational Training", href: "/vocational-training" },
-      { label: "Clean Water & Sanitation", href: "/clean-water-sanitation" },
-      { label: "Refugee Resettlement (MARRC)", href: "/marrc" },
     ],
   },
   {
@@ -72,8 +116,63 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "Fundraising Dinner", href: "/dinner" },
+  { label: "Storefront", href: "/storefront" },
   { label: "Contact", href: "/contact" },
 ];
+
+export type StorefrontProduct = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+export const storefrontProducts: StorefrontProduct[] = [
+  {
+    title: "Bibi's Cookbook (digital)",
+    description:
+      "Ten favorite Afghan recipes from our founder — instant PDF download.",
+    href: "https://www.awakeninc.org/product-page/bibi-s-cookbook-10-recipes-you-know-love-digital-pdf",
+  },
+  {
+    title: "Bibi's Cookbook (print)",
+    description:
+      "The same ten recipes in a printed edition — a beautiful gift for food lovers.",
+    href: "https://www.awakeninc.org/product-page/bibi-s-cookbook-10-recipes-you-know-love-physical-copy",
+  },
+  {
+    title: "Bibi's Cookies",
+    description: "Fresh-baked cookies sold as a fundraiser for AWAKEN programs.",
+    href: "https://www.awakeninc.org/product-page/bibi-s-cookies",
+  },
+  {
+    title: "Bibi's Cookies (2 dozen)",
+    description: "Two dozen cookies — perfect for sharing at gatherings.",
+    href: "https://www.awakeninc.org/product-page/bibi-s-cookies-2-dozen",
+  },
+  {
+    title: "Bibi's Cookies (3 dozen)",
+    description: "Three dozen cookies for larger events and holiday orders.",
+    href: "https://www.awakeninc.org/product-page/bibi-s-cookies-3-dozen",
+  },
+  {
+    title: "Dinner with Bibi (4 guests)",
+    description:
+      "An intimate home-cooked Afghan dinner with founder Bibi Bahrami.",
+    href: "https://www.awakeninc.org/product-page/dinner-with-bibi-for-4",
+  },
+  {
+    title: "Dinner with Bibi (8 guests)",
+    description:
+      "A larger dinner experience with Bibi — ideal for small groups.",
+    href: "https://www.awakeninc.org/product-page/dinner-with-bibi-for-8",
+  },
+];
+
+export const mainNav: NavItem[] = dinnerPageEnabled
+  ? baseMainNav
+  : baseMainNav.filter(
+      (item) => !("href" in item && item.href === "/dinner"),
+    );
 
 export const impactStats = [
   {
@@ -99,24 +198,32 @@ export const programCards = [
     description:
       "Serves 1,860 children and teens in grades 1 to 12 and provides college scholarships",
     href: "/education",
+    image: "/images/assets/42aff59dc3635eb5cbf9.jpg",
+    imageAlt: "Students in AWAKEN education programs",
   },
   {
     title: "Health Care",
     description:
       "Cares for more than 36,000 patients per year, providing key maternal & child health support",
     href: "/healthcare",
+    image: "/images/assets/dcf862d8550f38549d14.jpg",
+    imageAlt: "Healthcare for women and children at AWAKEN clinic",
   },
   {
     title: "Vocational Training",
     description:
       "Provides more than 60 women each year vocational, literacy & hygiene training",
     href: "/vocational-training",
+    image: "/images/assets/8c74cf6a42ec9837db18.jpg",
+    imageAlt: "Women in vocational tailoring training",
   },
   {
     title: "Clean Water & Sanitation",
     description:
       "Provides access to clean water and basic sanitation for rural communities in need",
     href: "/clean-water-sanitation",
+    image: "/images/assets/a88a44c6adc0c4b5936c.jpg",
+    imageAlt: "Clean water and sanitation work in rural Afghanistan",
   },
 ] as const;
 
@@ -228,9 +335,11 @@ export const boardMembers = [
   { name: "Cindy Buchanon", role: "Board Member" },
   { name: "Kristin Williams", role: "Board Member" },
   { name: "Cecil Bohanon", role: "Board Member" },
-  { name: "Anwar Abdalah", role: "Board Member" },
   { name: "Scott Shockley", role: "Board Member" },
   { name: "Amy Beckett", role: "Board Member" },
+  { name: "Kevin McNamara", role: "Board Member" },
+  { name: "Pam Richards", role: "Board Member" },
+  { name: "Sue Errington", role: "Board Member" },
 ] as const;
 
 export const afghanistanTeam = [
