@@ -50,7 +50,7 @@ export function ProseImageSection({
       <div
         className={cn(
           "relative w-full overflow-hidden rounded-lg bg-muted",
-          portrait ? "aspect-[3/4] max-w-sm" : "aspect-[4/3]",
+          portrait ? "aspect-[3/4] max-w-xs" : "aspect-[4/3]",
         )}
       >
         <Image

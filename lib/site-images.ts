@@ -1,5 +1,6 @@
 import manifest from "./images-manifest.json";
 import {
+  curatedAnnualLetterBannerPhotoPath,
   curatedAnnualLetterIllustrationPath,
   curatedAnnualLetterPhotoPath,
   curatedBodyImagePath,
@@ -91,6 +92,9 @@ export const siteImages = {
       ),
     },
   },
+  mission: {
+    hero: "/images/mission/overview-hero.jpg",
+  },
   marrc: {
     hero: curatedHeroForManifestSlug(manifest, "marrc"),
   },
@@ -102,9 +106,17 @@ export const siteImages = {
   },
   foundersStory: {
     hero: curatedHeroForManifestSlug(manifest, "founders-story"),
+    body: {
+      bibiWithKids: curatedBodyImagePath(
+        manifest,
+        "founders-story",
+        ["71e9faff", "bibi%20with%20school"],
+        "/images/assets/cfe4ca318dd74a2833ad.jpg",
+      ),
+    },
   },
   ourTeam: {
-    hero: curatedHeroForManifestSlug(manifest, "our-team"),
+    hero: "/images/team/ourteam-header.jpg",
   },
   gallery: {
     hero: curatedHeroForManifestSlug(manifest, "gallery"),
@@ -113,7 +125,12 @@ export const siteImages = {
     hero: curatedHeroForManifestSlug(manifest, "reports"),
   },
   endOfYearLetter2025: {
-    hero: curatedHeroForManifestSlug(manifest, "end-of-year-letter-2025"),
+    hero: "/images/letter/b6b4e7e2bc630a5fb8a5.png",
+    banner: curatedAnnualLetterBannerPhotoPath(manifest),
+    illustration: curatedAnnualLetterIllustrationPath(manifest),
+    storyPhoto: curatedAnnualLetterIllustrationPath(manifest),
+    familyPhoto: curatedAnnualLetterPhotoPath(manifest),
+    founderPhoto: "/images/letter/bibi-bahrami-signature.png",
   },
   dinner: {
     hero: curatedHeroForManifestSlug(manifest, "dinner"),

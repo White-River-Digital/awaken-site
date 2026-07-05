@@ -21,6 +21,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { OurWorkMobileNav, OurWorkNavMenu } from "@/components/our-work-nav-menu";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -28,7 +29,7 @@ export function SiteHeader() {
   const router = useRouter();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-white/95 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link
           href="/"
@@ -53,9 +54,9 @@ export function SiteHeader() {
           className="hidden lg:flex flex-1 items-center justify-center gap-1"
           aria-label="Main"
         >
-          {mainNav.map((item) => {
-            if ("href" in item) {
-              return (
+          {mainNav.map((item, index) => {
+            const node =
+              "href" in item ? (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -63,31 +64,40 @@ export function SiteHeader() {
                 >
                   {item.label}
                 </Link>
+              ) : (
+                <DropdownMenu key={item.label}>
+                  <DropdownMenuTrigger
+                    className={cn(
+                      "inline-flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium",
+                      "outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring",
+                    )}
+                  >
+                    {item.label}
+                    <span className="sr-only">menu</span>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="min-w-52">
+                    {item.items.map((sub) => (
+                      <DropdownMenuItem
+                        key={sub.href}
+                        onClick={() => router.push(sub.href)}
+                      >
+                        {sub.label}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              );
+
+            if (index === 0) {
+              return (
+                <span key={`${item.label}-group`} className="contents">
+                  {node}
+                  <OurWorkNavMenu />
+                </span>
               );
             }
-            return (
-              <DropdownMenu key={item.label}>
-                <DropdownMenuTrigger
-                  className={cn(
-                    "inline-flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium",
-                    "outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
-                  )}
-                >
-                  {item.label}
-                  <span className="sr-only">menu</span>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="min-w-52">
-                  {item.items.map((sub) => (
-                    <DropdownMenuItem
-                      key={sub.href}
-                      onClick={() => router.push(sub.href)}
-                    >
-                      {sub.label}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            );
+
+            return node;
           })}
         </nav>
 
@@ -118,9 +128,9 @@ export function SiteHeader() {
                 <SheetTitle className="text-left">Menu</SheetTitle>
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-4 text-sm">
-                {mainNav.map((item) => {
-                  if ("href" in item) {
-                    return (
+                {mainNav.map((item, index) => {
+                  const node =
+                    "href" in item ? (
                       <Link
                         key={item.href}
                         href={item.href}
@@ -129,28 +139,37 @@ export function SiteHeader() {
                       >
                         {item.label}
                       </Link>
+                    ) : (
+                      <div key={item.label} className="space-y-2">
+                        <div className="text-xs font-semibold uppercase text-muted-foreground">
+                          {item.label}
+                        </div>
+                        <ul className="space-y-1 border-l-2 border-brand-100 pl-3">
+                          {item.items.map((sub) => (
+                            <li key={sub.href}>
+                              <Link
+                                href={sub.href}
+                                className="block py-1"
+                                onClick={() => setOpen(false)}
+                              >
+                                {sub.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+
+                  if (index === 0) {
+                    return (
+                      <div key={`${item.label}-group`} className="space-y-4">
+                        {node}
+                        <OurWorkMobileNav onNavigate={() => setOpen(false)} />
+                      </div>
                     );
                   }
-                  return (
-                    <div key={item.label} className="space-y-2">
-                      <div className="text-xs font-semibold uppercase text-muted-foreground">
-                        {item.label}
-                      </div>
-                      <ul className="space-y-1 border-l-2 border-brand-100 pl-3">
-                        {item.items.map((sub) => (
-                          <li key={sub.href}>
-                            <Link
-                              href={sub.href}
-                              className="block py-1"
-                              onClick={() => setOpen(false)}
-                            >
-                              {sub.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  );
+
+                  return node;
                 })}
                 <Link
                   href="/donate"

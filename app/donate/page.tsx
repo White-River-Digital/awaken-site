@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { DonationOptionCard } from "@/components/donation-option-card";
 import { PageImageHero } from "@/components/page-image-hero";
 import { PageShell, ProseSection } from "@/components/page-shell";
-import { GivebutterPrimaryCta } from "@/components/givebutter-cta";
-import { siteConfig } from "@/lib/constants";
+import { HighlightCallout } from "@/components/prose-image-section";
+import { donationOptions, siteConfig } from "@/lib/constants";
 import { siteImages } from "@/lib/site-images";
 
 export const metadata: Metadata = {
   title: "Donate",
   description:
-    "Low cost, high impact — donate online via Givebutter or by mail to AWAKEN.",
+    "Low cost, high impact — donate online via Givebutter, PayPal Giving Fund, Venmo, LaunchGood, or by mail to AWAKEN.",
 };
 
 export default function DonatePage() {
@@ -22,26 +22,23 @@ export default function DonatePage() {
         subtitle="Low cost. High impact. Every dollar counts."
       />
       <PageShell>
-        <div className="rounded-2xl border border-brand-100 bg-brand-50/50 p-8 text-center">
-          <h2 className="font-heading text-xl font-semibold text-brand-900">
+        <section aria-labelledby="donate-online-heading">
+          <h2
+            id="donate-online-heading"
+            className="font-heading text-2xl font-semibold text-brand-900"
+          >
             Donate online
           </h2>
-          <p className="mt-2 text-muted-foreground">
-            Secure checkout through Givebutter — use the same campaign as linked
-            from our annual letter and events.
+          <p className="mt-2 max-w-2xl text-muted-foreground">
+            Choose the giving option that works best for you. Every method
+            supports AWAKEN&apos;s work in Afghanistan.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <GivebutterPrimaryCta
-              label="Give now on Givebutter"
-              className="bg-brand-700 hover:bg-brand-800 text-white"
-            />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {donationOptions.map((option) => (
+              <DonationOptionCard key={option.title} option={option} />
+            ))}
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Widget ID (legacy embed): {siteConfig.givebutter.widgetId} — if you
-            use Givebutter&apos;s embed snippet, drop it into a client component
-            alongside this page.
-          </p>
-        </div>
+        </section>
 
         <ProseSection className="mt-12">
           <p>
@@ -51,11 +48,11 @@ export default function DonatePage() {
             expenses have supported comprehensive healthcare, vocational training,
             education, and water &amp; sanitation across Behsood.
           </p>
-          <p>
+          <HighlightCallout>
             <strong>98% of every dollar</strong> goes directly to work in
-            Afghanistan. AWAKEN has <strong>no paid employees or board members</strong>{" "}
-            in the U.S.
-          </p>
+            Afghanistan. AWAKEN has{" "}
+            <strong>no paid employees or board members</strong> in the U.S.
+          </HighlightCallout>
           <h2>Donate by mail</h2>
           <p>
             Checks payable to <strong>AWAKEN</strong> may be mailed to:
@@ -80,19 +77,17 @@ export default function DonatePage() {
             AWAKEN does not share or supply personal information of donors for
             solicitation.
           </p>
-          <h2>In memory &amp; in honor</h2>
-          <p>
-            The original site listed memorial gifts for Chic Clark, Jay Zimmerman,
-            Thomas J. Wagner, Kathryn Garofolo; and honor gifts for Gary &amp; Pat
-            Garofolo. Thank you to everyone who remembers loved ones through
-            support for Afghan families.
-          </p>
-          <p>
-            <Link href="/contact" className="font-medium text-brand-700">
-              Contact us
-            </Link>{" "}
-            to dedicate a gift.
-          </p>
+          <h2>Donations made in memory of our dear friends of AWAKEN:</h2>
+          <ul>
+            <li>Chic Clark</li>
+            <li>Jay Zimmerman</li>
+            <li>Thomas J. Wagner</li>
+            <li>Kathryn Garofolo</li>
+          </ul>
+          <h2>Donations made in honor of our dear friends of AWAKEN:</h2>
+          <ul>
+            <li>Gary &amp; Pat Garofolo</li>
+          </ul>
         </ProseSection>
       </PageShell>
     </>
