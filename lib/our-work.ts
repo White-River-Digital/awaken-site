@@ -13,8 +13,6 @@ export type OurWorkPage = {
   imageKey?: "healthcare" | "education" | "water" | "vocational" | "marrc";
 };
 
-const path = (segments: string) => `/our-work/${segments}`;
-
 /** Original program pages — linked from the Our Work nav. */
 export const ourWorkNav = {
   current: [
