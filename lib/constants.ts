@@ -116,7 +116,7 @@ const baseMainNav: NavItem[] = [
     ],
   },
   { label: "Fundraising Dinner", href: "/dinner" },
-  { label: "Storefront", href: "/storefront" },
+  { label: "Shop", href: "/storefront" },
   { label: "Contact", href: "/contact" },
 ];
 

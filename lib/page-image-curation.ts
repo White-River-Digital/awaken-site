@@ -138,7 +138,7 @@ export function curatedHeroForManifestSlug(
   return upgradeHeroResolution(m, base);
 }
 
-/** AWAKEN wordmark + figures (header, favicon) — canonical site logo asset. */
+/** AWAKEN wordmark + figures (header, favicon) — canonical transparent PNG. */
 export const SITE_LOGO_PATH = "/images/assets/awaken-logo.png";
 
 export function curatedSiteLogoPath(): string {

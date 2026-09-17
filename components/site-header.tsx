@@ -39,9 +39,10 @@ export function SiteHeader() {
             <Image
               src={siteImages.logo}
               alt={`${siteConfig.name} logo`}
-              width={200}
-              height={80}
-              className="h-12 w-auto object-contain object-left"
+              width={1200}
+              height={915}
+              className="h-14 w-auto object-contain object-left"
+              sizes="80px"
               priority
             />
           ) : (

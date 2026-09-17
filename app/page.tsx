@@ -19,7 +19,7 @@ export default function HomePage() {
           {siteImages.homeHero ? (
             <Image
               src={siteImages.homeHero}
-              alt="Afghan women and children in a community education program"
+              alt="Girls writing and studying in an AWAKEN education program"
               fill
               priority
               className="object-cover"
@@ -67,9 +67,9 @@ export default function HomePage() {
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground">
             Our mission is to improve access to education, provide healthcare
-            services, create vocational opportunities, and clean water &amp;
-            sanitation to enable Afghan women and families to become literate,
-            healthy, and self-sufficient.
+            services, create vocational opportunities, and supply clean water
+            &amp; sanitation to enable Afghan women and families to become
+            literate, healthy, and self-sufficient.
           </p>
         </section>
 
