@@ -8,6 +8,7 @@ export function ImageHero({
   subtitle,
   eyebrow,
   align = "bottom",
+  imageClassName,
 }: {
   src: string;
   alt: string;
@@ -15,6 +16,7 @@ export function ImageHero({
   subtitle?: string;
   eyebrow?: string;
   align?: "bottom" | "center";
+  imageClassName?: string;
 }) {
   return (
     <div className="relative min-h-[240px] w-full overflow-hidden sm:min-h-[320px]">
@@ -23,7 +25,7 @@ export function ImageHero({
         alt={alt}
         fill
         priority
-        className="object-cover"
+        className={cn("object-cover", imageClassName)}
         sizes="100vw"
       />
       <div

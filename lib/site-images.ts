@@ -11,8 +11,8 @@ import {
 /** All paths come from `scripts/download-images.mjs` → `lib/images-manifest.json` */
 export const siteImages = {
   logo: curatedSiteLogoPath(),
-  /** Single static hero on the homepage (matches live site). */
-  homeHero: curatedHeroForManifestSlug(manifest, "home"),
+  /** Single static hero on the homepage. */
+  homeHero: "/images/home/hero.jpg",
   /** Family photo on the homepage annual-letter promo card. */
   annualLetterPhoto: curatedAnnualLetterPhotoPath(manifest),
   /** AWAKEN figures wordmark shown beside the annual letter copy. */
@@ -99,13 +99,13 @@ export const siteImages = {
     hero: curatedHeroForManifestSlug(manifest, "marrc"),
   },
   donate: {
-    hero: curatedHeroForManifestSlug(manifest, "donate"),
+    hero: "/images/donate/header.jpg",
   },
   contact: {
     hero: curatedHeroForManifestSlug(manifest, "contact"),
   },
   foundersStory: {
-    hero: curatedHeroForManifestSlug(manifest, "founders-story"),
+    hero: "/images/founders-story/header.jpg",
     body: {
       bibiWithKids: curatedBodyImagePath(
         manifest,

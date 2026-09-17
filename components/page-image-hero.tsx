@@ -8,12 +8,14 @@ export function PageImageHero({
   title,
   subtitle,
   eyebrow,
+  imageClassName,
 }: {
   src: string;
   alt: string;
   title: string;
   subtitle?: string;
   eyebrow?: string;
+  imageClassName?: string;
 }) {
   if (!src) {
     return <PageHero eyebrow={eyebrow} title={title} subtitle={subtitle} />;
@@ -25,6 +27,7 @@ export function PageImageHero({
       title={title}
       subtitle={subtitle}
       eyebrow={eyebrow}
+      imageClassName={imageClassName}
     />
   );
 }

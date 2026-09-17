@@ -63,8 +63,9 @@ export default function FoundersStoryPage() {
     <>
       <PageImageHero
         src={hero}
-        alt="Founder Bibi Bahrami and AWAKEN"
+        alt="Girls gathered at an AWAKEN school"
         title="Story of AWAKEN&apos;s Founder"
+        imageClassName="object-top"
       />
       <PageShell>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start lg:gap-12">

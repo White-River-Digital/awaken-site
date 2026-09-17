@@ -17,9 +17,10 @@ export default function DonatePage() {
     <>
       <PageImageHero
         src={siteImages.donate.hero}
-        alt="Donor support for AWAKEN programs in Afghanistan"
+        alt="Women and children supported by AWAKEN programs"
         title="Donate"
         subtitle="Low cost. High impact. Every dollar counts."
+        imageClassName="object-top"
       />
       <PageShell>
         <section aria-labelledby="donate-online-heading">

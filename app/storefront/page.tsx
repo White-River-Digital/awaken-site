@@ -14,7 +14,7 @@ import { siteConfig, storefrontProducts } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Storefront",
+  title: "Shop",
   description:
     "Shop AWAKEN merchandise — cookbooks, cookies, and special experiences that support our work in Afghanistan.",
 };
@@ -23,7 +23,7 @@ export default function StorefrontPage() {
   return (
     <>
       <PageHero
-        title="Storefront"
+        title="Shop"
         subtitle="Every purchase supports AWAKEN programs in Afghanistan — from Bibi's cookbook and cookies to special fundraising experiences."
       />
       <PageShell>

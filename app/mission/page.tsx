@@ -166,7 +166,7 @@ export default function MissionPage() {
         </section>
 
         <ProseSection className="mt-16">
-          <h2>Where We Work</h2>
+          <h2>Our Main Service Area</h2>
           <p>
             The work of AWAKEN is overseen by a group of dedicated board members
             in Indiana who come from diverse backgrounds, religions, and

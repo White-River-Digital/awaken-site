@@ -33,6 +33,8 @@ export const BOARD_MEMBER_PHOTO_PATTERNS: Record<string, string[]> = {
 /** Locally hosted headshots not yet on the Wix CDN crawl. */
 export const LOCAL_TEAM_PHOTO_PATHS: Record<string, string> = {
   "Pam Richards": "/images/team/pam-richards.jpg",
+  "Kevin McNamara": "/images/team/kevin_headshot.jpeg",
+  "Sue Errington": "/images/team/sue_headshot.jpeg",
 };
 
 export const AFGHANISTAN_TEAM_PHOTO_PATTERNS: Record<string, string[]> = {
