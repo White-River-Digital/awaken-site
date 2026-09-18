@@ -35,15 +35,6 @@ export default function HomePage() {
             </h1>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
-                href="/donate"
-                className={cn(
-                  buttonVariants({ size: "lg", variant: "ghost" }),
-                  "h-14 rounded-lg px-8 text-base bg-brand-700 text-white shadow-sm hover:bg-brand-800 hover:text-white"
-                )}
-              >
-                Donate
-              </Link>
-              <Link
                 href="/our-team"
                 className={cn(
                   buttonVariants({ size: "lg", variant: "secondary" }),
@@ -51,6 +42,15 @@ export default function HomePage() {
                 )}
               >
                 Our team
+              </Link>
+              <Link
+                href="/donate"
+                className={cn(
+                  buttonVariants({ size: "lg", variant: "ghost" }),
+                  "h-14 rounded-lg px-8 text-base bg-brand-700 text-white shadow-sm hover:bg-brand-800 hover:text-white"
+                )}
+              >
+                Donate
               </Link>
             </div>
           </div>

@@ -198,7 +198,7 @@ export const programCards = [
     description:
       "Serves 1,860 children and teens in grades 1 to 12 and provides college scholarships",
     href: "/education",
-    image: "/images/assets/42aff59dc3635eb5cbf9.jpg",
+    image: "/images/assets/dcf862d8550f38549d14.jpg",
     imageAlt: "Students in AWAKEN education programs",
   },
   {
@@ -206,7 +206,7 @@ export const programCards = [
     description:
       "Cares for more than 36,000 patients per year, providing key maternal & child health support",
     href: "/healthcare",
-    image: "/images/assets/dcf862d8550f38549d14.jpg",
+    image: "/images/assets/42aff59dc3635eb5cbf9.jpg",
     imageAlt: "Healthcare for women and children at AWAKEN clinic",
   },
   {
@@ -214,7 +214,7 @@ export const programCards = [
     description:
       "Provides more than 60 women each year vocational, literacy & hygiene training",
     href: "/vocational-training",
-    image: "/images/assets/8c74cf6a42ec9837db18.jpg",
+    image: "/images/assets/a88a44c6adc0c4b5936c.jpg",
     imageAlt: "Women in vocational tailoring training",
   },
   {
@@ -222,7 +222,7 @@ export const programCards = [
     description:
       "Provides access to clean water and basic sanitation for rural communities in need",
     href: "/clean-water-sanitation",
-    image: "/images/assets/a88a44c6adc0c4b5936c.jpg",
+    image: "/images/assets/8c74cf6a42ec9837db18.jpg",
     imageAlt: "Clean water and sanitation work in rural Afghanistan",
   },
 ] as const;
