@@ -46,8 +46,8 @@ export default function HomePage() {
               <Link
                 href="/donate"
                 className={cn(
-                  buttonVariants({ size: "lg", variant: "ghost" }),
-                  "h-14 rounded-lg px-8 text-base bg-brand-700 text-white shadow-sm hover:bg-brand-800 hover:text-white"
+                  buttonVariants({ size: "lg" }),
+                  "h-14 rounded-lg px-8 text-base bg-[#ffbb66] text-black shadow-sm hover:bg-[#f0a84d] hover:text-black [a]:hover:bg-[#f0a84d]"
                 )}
               >
                 Donate
