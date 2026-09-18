@@ -16,13 +16,13 @@ export type OurWorkPage = {
 /** Original program pages — linked from the Our Work nav. */
 export const ourWorkNav = {
   current: [
-    { label: "healthcare", href: "/healthcare" },
-    { label: "education", href: "/education" },
-    { label: "clean-water-sanitation", href: "/clean-water-sanitation" },
+    { label: "Health Care", href: "/healthcare" },
+    { label: "Education", href: "/education" },
+    { label: "Clean Water & Sanitation", href: "/clean-water-sanitation" },
   ] satisfies OurWorkLink[],
   past: [
-    { label: "vocational-training", href: "/vocational-training" },
-    { label: "marrc", href: "/marrc" },
+    { label: "Vocational Training", href: "/vocational-training" },
+    { label: "MARRC", href: "/marrc" },
   ] satisfies OurWorkLink[],
 } as const;
 

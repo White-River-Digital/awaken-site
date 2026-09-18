@@ -17,6 +17,7 @@ import {
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -124,65 +125,79 @@ export function SiteHeader() {
             >
               <Menu className="size-5" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-[min(100vw,20rem)]">
-              <SheetHeader>
-                <SheetTitle className="text-left">Menu</SheetTitle>
+            <SheetContent
+              side="right"
+              className="w-[min(100vw,22rem)] data-[side=right]:w-[min(100vw,22rem)] gap-0 bg-white p-0"
+            >
+              <SheetHeader className="border-b border-border/70 px-5 py-4">
+                <SheetTitle className="text-left font-heading text-lg font-semibold text-brand-900">
+                  Menu
+                </SheetTitle>
               </SheetHeader>
-              <div className="mt-6 flex flex-col gap-4 text-sm">
-                {mainNav.map((item, index) => {
-                  const node =
-                    "href" in item ? (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="font-medium py-1"
-                        onClick={() => setOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <div key={item.label} className="space-y-2">
-                        <div className="text-xs font-semibold uppercase text-muted-foreground">
+              <nav
+                className="min-h-0 flex-1 overflow-y-auto px-5 py-5"
+                aria-label="Mobile"
+              >
+                <div className="flex flex-col gap-6">
+                  {mainNav.map((item, index) => {
+                    const node =
+                      "href" in item ? (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block rounded-md py-2 text-base font-medium text-foreground hover:text-brand-800"
+                          onClick={() => setOpen(false)}
+                        >
                           {item.label}
+                        </Link>
+                      ) : (
+                        <div key={item.label} className="space-y-2">
+                          <p className="text-xs font-semibold uppercase tracking-wide text-brand-800">
+                            {item.label}
+                          </p>
+                          <ul className="space-y-0.5">
+                            {item.items.map((sub) => (
+                              <li key={sub.href}>
+                                <Link
+                                  href={sub.href}
+                                  className="block rounded-md py-2 text-base text-foreground hover:text-brand-800"
+                                  onClick={() => setOpen(false)}
+                                >
+                                  {sub.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        <ul className="space-y-1 border-l-2 border-brand-100 pl-3">
-                          {item.items.map((sub) => (
-                            <li key={sub.href}>
-                              <Link
-                                href={sub.href}
-                                className="block py-1"
-                                onClick={() => setOpen(false)}
-                              >
-                                {sub.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    );
+                      );
 
-                  if (index === 0) {
-                    return (
-                      <div key={`${item.label}-group`} className="space-y-4">
-                        {node}
-                        <OurWorkMobileNav onNavigate={() => setOpen(false)} />
-                      </div>
-                    );
-                  }
+                    if (index === 0) {
+                      return (
+                        <div key={`${item.label}-group`} className="space-y-6">
+                          {node}
+                          <OurWorkMobileNav
+                            onNavigate={() => setOpen(false)}
+                          />
+                        </div>
+                      );
+                    }
 
-                  return node;
-                })}
+                    return node;
+                  })}
+                </div>
+              </nav>
+              <SheetFooter className="border-t border-border/70 px-5 py-4">
                 <Link
                   href="/donate"
                   onClick={() => setOpen(false)}
                   className={cn(
                     buttonVariants(),
-                    "mt-2 bg-brand-700 hover:bg-brand-800 text-primary-foreground"
+                    "w-full bg-brand-700 text-white hover:bg-brand-800 hover:text-white"
                   )}
                 >
                   Donate
                 </Link>
-              </div>
+              </SheetFooter>
             </SheetContent>
           </Sheet>
         </div>

@@ -98,6 +98,9 @@ export type NavItem =
 /** Set to true when the annual fundraising dinner page should be live. */
 export const dinnerPageEnabled = false;
 
+/** Set to true when Shop should appear in the main nav. */
+export const shopPageEnabled = false;
+
 const baseMainNav: NavItem[] = [
   {
     label: "About Us",
@@ -168,11 +171,12 @@ export const storefrontProducts: StorefrontProduct[] = [
   },
 ];
 
-export const mainNav: NavItem[] = dinnerPageEnabled
-  ? baseMainNav
-  : baseMainNav.filter(
-      (item) => !("href" in item && item.href === "/dinner"),
-    );
+export const mainNav: NavItem[] = baseMainNav.filter((item) => {
+  if (!("href" in item)) return true;
+  if (item.href === "/dinner" && !dinnerPageEnabled) return false;
+  if (item.href === "/storefront" && !shopPageEnabled) return false;
+  return true;
+});
 
 export const impactStats = [
   {

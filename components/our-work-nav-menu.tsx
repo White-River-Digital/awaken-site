@@ -70,21 +70,21 @@ export function OurWorkMobileNav({
   onNavigate?: () => void;
 }) {
   return (
-    <div className="space-y-4">
-      <div className="text-xs font-semibold uppercase text-muted-foreground">
+    <div className="space-y-3">
+      <p className="text-xs font-semibold uppercase tracking-wide text-brand-800">
         Our Work
-      </div>
-      <div className="space-y-4 border-l-2 border-brand-100 pl-3">
+      </p>
+      <div className="space-y-4">
         <div>
-          <p className="text-xs font-semibold uppercase text-muted-foreground">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
             Current
           </p>
-          <ul className="mt-1 space-y-1">
+          <ul className="mt-1 space-y-0.5">
             {ourWorkNav.current.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block py-0.5 text-muted-foreground hover:text-foreground"
+                  className="block rounded-md py-2 text-base text-foreground hover:text-brand-800"
                   onClick={onNavigate}
                 >
                   {item.label}
@@ -94,15 +94,15 @@ export function OurWorkMobileNav({
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase text-muted-foreground">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
             Past
           </p>
-          <ul className="mt-1 space-y-1">
+          <ul className="mt-1 space-y-0.5">
             {ourWorkNav.past.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block py-0.5 text-muted-foreground hover:text-foreground"
+                  className="block rounded-md py-2 text-base text-foreground hover:text-brand-800"
                   onClick={onNavigate}
                 >
                   {item.label}
