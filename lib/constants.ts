@@ -235,96 +235,96 @@ export const reportLinks = {
   "2023-24": [
     {
       label: "Budget FY 2023 - 24",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_939b5d47c0c344dba891ec056e504dd7.xlsx?dn=Budget-FY2023-24.xlsx",
+      href: "/documents/2023-24/budget.xlsx",
     },
     {
       label: "Balance FY 2023 -24",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_9f260876188c4abeb0a2d4bb8db0ec6a.xls?dn=Balance%20sheet%20FY2023-24.xls",
+      href: "/documents/2023-24/balance.xls",
     },
     {
       label: "Revenue & Expenses FY 2023 -24",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_915f4b52ad77453b8ab99836ca39ba06.xls?dn=Revenues%20%26%20Expenses%20FY2023-24.xls",
+      href: "/documents/2023-24/revenue-expenses.xls",
     },
     {
       label:
         "Contributions, Restricted Contributions and Spending of Restricted Contributions FY 2023 -24",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_59678c2af1e7479998d4621665e2608a.xlsx?dn=Contributions%2C%20Restricted%20Contributions%20and%20Spending%20of%20Restricted%20Contributions%20FY%202023-2",
+      href: "/documents/2023-24/contributions.xlsx",
     },
   ],
   "2022-23": [
     {
       label: "Budget FY 2022 -23",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_53295d09528e4a81bf41347afd7fce73.xls?dn=Budget-Fy2020.xls",
+      href: "/documents/2022-23/budget.xls",
     },
     {
       label: "Balance FY 2022 -23",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_0543710918b64ee4bb64526769b373bd.xls?dn=Balance%20sheetfy%20FY20%20thru%2010.31.20.xls",
+      href: "/documents/2022-23/balance.xls",
     },
     {
       label: "Revenue & Expenses FY 2022 -23",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_eea3b9049bb243828ec2cc189a72658f.xls?dn=Rev%26ExpFY2020%20thru%2010.31.20.xls",
+      href: "/documents/2022-23/revenue-expenses.xls",
     },
     {
       label:
         "Contributions, Restricted Contributions and Spending of Restricted Contributions FY 2022 -23",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_309d08e68dbf4640980b4929644ef20b.xls?dn=Contributions%2C%20Restricted%20Contributions%20and%20Spending%20of%20Restricted%20Contributions%20FY%202019-2",
+      href: "/documents/2022-23/contributions.xls",
     },
   ],
   "2021-22": [
     {
       label: "Budget FY 2021 -22",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_53295d09528e4a81bf41347afd7fce73.xls?dn=Budget-Fy2020.xls",
+      href: "/documents/2021-22/budget.xls",
     },
     {
       label: "Balance FY 2021 -22",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_0543710918b64ee4bb64526769b373bd.xls?dn=Balance%20sheetfy%20FY20%20thru%2010.31.20.xls",
+      href: "/documents/2021-22/balance.xls",
     },
     {
       label: "Revenue & Expenses FY 2021 -22",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_eea3b9049bb243828ec2cc189a72658f.xls?dn=Rev%26ExpFY2020%20thru%2010.31.20.xls",
+      href: "/documents/2021-22/revenue-expenses.xls",
     },
     {
       label:
         "Contributions, Restricted Contributions and Spending of Restricted Contributions FY 2021 -22",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_309d08e68dbf4640980b4929644ef20b.xls?dn=Contributions%2C%20Restricted%20Contributions%20and%20Spending%20of%20Restricted%20Contributions%20FY%202019-2",
+      href: "/documents/2021-22/contributions.xls",
     },
   ],
   "2020-21": [
     {
       label: "Budget FY 2020 -21",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_53295d09528e4a81bf41347afd7fce73.xls?dn=Budget-Fy2020.xls",
+      href: "/documents/2020-21/budget.xls",
     },
     {
       label: "Balance FY 2020 -21",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_0543710918b64ee4bb64526769b373bd.xls?dn=Balance%20sheetfy%20FY20%20thru%2010.31.20.xls",
+      href: "/documents/2020-21/balance.xls",
     },
     {
       label: "Revenue & Expenses FY 2020 -21",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_eea3b9049bb243828ec2cc189a72658f.xls?dn=Rev%26ExpFY2020%20thru%2010.31.20.xls",
+      href: "/documents/2020-21/revenue-expenses.xls",
     },
     {
       label:
         "Contributions, Restricted Contributions and Spending of Restricted Contributions FY 2020 -21",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_309d08e68dbf4640980b4929644ef20b.xls?dn=Contributions%2C%20Restricted%20Contributions%20and%20Spending%20of%20Restricted%20Contributions%20FY%202019-2",
+      href: "/documents/2020-21/contributions.xls",
     },
   ],
   "2019-20": [
     {
       label: "Budget FY 2019 - 20",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_53295d09528e4a81bf41347afd7fce73.xls?dn=Budget-Fy2020.xls",
+      href: "/documents/2019-20/budget.xls",
     },
     {
       label: "Balance FY 2019 -20",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_0543710918b64ee4bb64526769b373bd.xls?dn=Balance%20sheetfy%20FY20%20thru%2010.31.20.xls",
+      href: "/documents/2019-20/balance.xls",
     },
     {
       label: "Revenue & Expenses FY 2019-20",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_eea3b9049bb243828ec2cc189a72658f.xls?dn=Rev%26ExpFY2020%20thru%2010.31.20.xls",
+      href: "/documents/2019-20/revenue-expenses.xls",
     },
     {
       label:
         "Contributions, Restricted Contributions and Spending of Restricted Contributions FY 2019-20",
-      href: "https://www.awakeninc.org/_files/ugd/086de0_309d08e68dbf4640980b4929644ef20b.xls?dn=Contributions%2C%20Restricted%20Contributions%20and%20Spending%20of%20Restricted%20Contributions%20FY%202019-2",
+      href: "/documents/2019-20/contributions.xls",
     },
   ],
 } as const;

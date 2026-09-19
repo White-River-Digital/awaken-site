@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageImageHero } from "@/components/page-image-hero";
 import { PageShell, ProseSection } from "@/components/page-shell";
 import { siteImages } from "@/lib/site-images";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Overview",
@@ -15,42 +16,42 @@ const milestones = [
   {
     year: "2004",
     text: "AWAKEN completed its first initiative: creating the co-ed Qala-e-Malakh school, which now has over 1,500 students in grades 1–12.",
-    image: siteImages.education.body.graduates,
+    image: "/images/timeline/2004.jpg",
     alt: "Students at Qala-e-Malakh School",
     side: "left" as const,
   },
   {
     year: "2005",
     text: "Established our first vocational training program, which lasts six months and teaches over 20 women how to sew, read, and practice hygiene.",
-    image: siteImages.vocational.body.trainingClass,
-    alt: "Women in AWAKEN vocational training",
+    image: "/images/timeline/2005.jpg",
+    alt: "Woman with a sewing machine from AWAKEN vocational training",
     side: "right" as const,
   },
   {
     year: "2011",
     text: "Opened the Behsood Health Clinic, the first clinic in this district. The clinic now cares for 3,000 patients each month.",
-    image: siteImages.healthcare.body.clinic,
+    image: "/images/timeline/2011.jpg",
     alt: "Behsood Health Clinic",
     side: "left" as const,
   },
   {
     year: "2016",
     text: "Opened the Maternal and Child Health Unit, an addition to the Behsood Health Clinic. Provides prenatal, delivery, and postnatal care to 200 women each month.",
-    image: siteImages.healthcare.body.maternal,
-    alt: "Maternal and child health care at AWAKEN",
+    image: "/images/timeline/2016.jpg",
+    alt: "Mother and infant supported by AWAKEN maternal care",
     side: "right" as const,
   },
   {
     year: "2017",
     text: "Constructed four latrines, two hand-washing stations, and two drinking water stations for the clinic, as well as four latrines for the Qala-e-Malakh school.",
-    image: siteImages.water.body.waterProject,
+    image: "/images/timeline/2017.jpg",
     alt: "Clean water and sanitation project",
     side: "left" as const,
   },
   {
     year: "2019",
     text: "Established a mobile health clinic to reach more villages beyond Behsood. Travels five days a week to provide basic health care and life-saving vaccines.",
-    image: siteImages.healthcare.body.mobile,
+    image: "/images/timeline/2019.jpg",
     alt: "AWAKEN mobile health clinic",
     side: "right" as const,
   },
@@ -64,7 +65,7 @@ function MilestoneItem({
   side,
 }: (typeof milestones)[number]) {
   const imageCol = (
-    <div className="relative aspect-[4/3] w-full max-w-[220px] overflow-hidden rounded-lg bg-muted shadow-sm ring-1 ring-border/60 sm:max-w-[250px]">
+    <div className="relative mx-auto aspect-[4/3] w-[220px] overflow-hidden rounded-lg bg-muted shadow-sm ring-1 ring-border/60 sm:mx-0 sm:w-[250px]">
       <Image src={image} alt={alt} fill className="object-cover" sizes="250px" />
     </div>
   );
@@ -77,26 +78,31 @@ function MilestoneItem({
   );
 
   return (
-    <li className="relative grid gap-6 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
-      {side === "left" ? (
-        <>
-          <div className="sm:justify-self-end">{textCol}</div>
-          <div
-            className="hidden size-4 rounded-full border-4 border-brand-200 bg-brand-600 sm:block"
-            aria-hidden
-          />
-          <div className="sm:justify-self-start">{imageCol}</div>
-        </>
-      ) : (
-        <>
-          <div className="sm:justify-self-end">{imageCol}</div>
-          <div
-            className="hidden size-4 rounded-full border-4 border-brand-200 bg-brand-600 sm:block"
-            aria-hidden
-          />
-          <div className="sm:justify-self-start">{textCol}</div>
-        </>
-      )}
+    <li className="relative grid grid-cols-1 gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-6">
+      <div
+        className={cn(
+          "order-1",
+          side === "left"
+            ? "sm:order-1 sm:justify-self-end"
+            : "sm:order-3 sm:justify-self-start",
+        )}
+      >
+        {textCol}
+      </div>
+      <div
+        className="order-3 hidden size-4 rounded-full border-4 border-brand-200 bg-brand-600 sm:order-2 sm:block"
+        aria-hidden
+      />
+      <div
+        className={cn(
+          "order-2",
+          side === "left"
+            ? "sm:order-3 sm:justify-self-start"
+            : "sm:order-1 sm:justify-self-end",
+        )}
+      >
+        {imageCol}
+      </div>
     </li>
   );
 }

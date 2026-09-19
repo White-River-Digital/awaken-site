@@ -22,8 +22,7 @@ export default function ReportsPage() {
         <ProseSection>
           <p>
             In our commitment to full transparency, financial summaries for recent
-            fiscal years are linked below (same document URLs as the legacy site).
-            Questions:{" "}
+            fiscal years are linked below. Questions:{" "}
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
           </p>
           {Object.entries(reportLinks).map(([year, links]) => (
