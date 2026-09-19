@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageImageHero } from "@/components/page-image-hero";
 import { PageShell, ProseSection } from "@/components/page-shell";
 import { siteImages } from "@/lib/site-images";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Overview",
@@ -64,7 +65,7 @@ function MilestoneItem({
   side,
 }: (typeof milestones)[number]) {
   const imageCol = (
-    <div className="relative aspect-[4/3] w-full max-w-[220px] overflow-hidden rounded-lg bg-muted shadow-sm ring-1 ring-border/60 sm:max-w-[250px]">
+    <div className="relative mx-auto aspect-[4/3] w-[220px] overflow-hidden rounded-lg bg-muted shadow-sm ring-1 ring-border/60 sm:mx-0 sm:w-[250px]">
       <Image src={image} alt={alt} fill className="object-cover" sizes="250px" />
     </div>
   );
@@ -77,26 +78,31 @@ function MilestoneItem({
   );
 
   return (
-    <li className="relative grid gap-6 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
-      {side === "left" ? (
-        <>
-          <div className="sm:justify-self-end">{textCol}</div>
-          <div
-            className="hidden size-4 rounded-full border-4 border-brand-200 bg-brand-600 sm:block"
-            aria-hidden
-          />
-          <div className="sm:justify-self-start">{imageCol}</div>
-        </>
-      ) : (
-        <>
-          <div className="sm:justify-self-end">{imageCol}</div>
-          <div
-            className="hidden size-4 rounded-full border-4 border-brand-200 bg-brand-600 sm:block"
-            aria-hidden
-          />
-          <div className="sm:justify-self-start">{textCol}</div>
-        </>
-      )}
+    <li className="relative grid grid-cols-1 gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-6">
+      <div
+        className={cn(
+          "order-1",
+          side === "left"
+            ? "sm:order-1 sm:justify-self-end"
+            : "sm:order-3 sm:justify-self-start",
+        )}
+      >
+        {textCol}
+      </div>
+      <div
+        className="order-3 hidden size-4 rounded-full border-4 border-brand-200 bg-brand-600 sm:order-2 sm:block"
+        aria-hidden
+      />
+      <div
+        className={cn(
+          "order-2",
+          side === "left"
+            ? "sm:order-3 sm:justify-self-start"
+            : "sm:order-1 sm:justify-self-end",
+        )}
+      >
+        {imageCol}
+      </div>
     </li>
   );
 }
